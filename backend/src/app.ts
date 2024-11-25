@@ -10,8 +10,17 @@ app.get("/",
 
 app.post("/ride/estimate", async (req: Request, res: Response): Promise<any> => {
 
-  // TODO: Pegar local de origim, destino, ID do user
-  // TODO: Validar se alguma variável está vazia
+  const roadInfos = req.body;
+
+  if (!roadInfos.hasOwnProperty("origin")) return res.status(400).json({ errorMessage: "A origem não foi informada!" })
+  if (!roadInfos.hasOwnProperty("destination")) return res.status(400).json({ errorMessage: "O destino não foi informado!" })
+  if (!roadInfos.hasOwnProperty("id")) return res.status(400).json({ errorMessage: "User sem ID!" })
+
+  const { origin, destination, id } = roadInfos;
+
+  if (origin === destination) return res.status(400).json({ errorMessage: "Origem e destino não podem ser iguais!" })
+
+
   // TODO: Validar se origem e destino são locais diferentes
   // TODO: Chamar API GOOGLE MAPS
   // TODO: Enviar locais para API
@@ -24,12 +33,11 @@ app.post("/ride/estimate", async (req: Request, res: Response): Promise<any> => 
 
 
 
-  const roadInfos = req.body;
   console.log(roadInfos);
 
 
 
-  return res.status(500).json({ error: "error" })
+  return res.status(500).json({ errorMessage: "error" })
 })
 
 export default app;
