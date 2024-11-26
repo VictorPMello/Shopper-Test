@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
+import { motoristas } from "./motoristas"
 
 const app = express();
 dotenv.config()
@@ -18,26 +19,31 @@ app.post("/ride/estimate", async (req: Request, res: Response): Promise<any> => 
 
   if (!roadInfos.hasOwnProperty("origin")) return res.status(400).json({ errorMessage: "A origem não foi informada!" })
   if (!roadInfos.hasOwnProperty("destination")) return res.status(400).json({ errorMessage: "O destino não foi informado!" })
-  if (!roadInfos.hasOwnProperty("curstomer_id")) return res.status(400).json({ errorMessage: "User sem ID!" })
+  if (!roadInfos.hasOwnProperty("customer_id")) return res.status(400).json({ errorMessage: "User sem ID!" })
 
   const { origin, destination, customer_id } = roadInfos;
 
   if (origin === destination) return res.status(400).json({ errorMessage: "Origem e destino não podem ser iguais!" })
 
-
   // TODO: Chamar API GOOGLE MAPS
-  const test = fetch('https://routes.googleapis.com/directions/v0:computeRoutes', {
+  const test = await fetch('https://routes.googleapis.com/directions/v2:computeRoutes', {
     method: "POST",
     headers: {
       'Content-Type': 'application/json',
       'X-Goog-Api-Key': process.env.GOOGLE_API_KEY || '',
       'X-Goog-FieldMask': 'routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline',
     },
-    body: JSON.stringfy({})
-  })
-  console.log(test)
-  // TODO: Enviar locais para API
-  // TODO: Calcular distância
+    body: JSON.stringify({
+      "origin": { "address": origin },
+      "destination": { "address": destination },
+      "travelMode": "DRIVE"
+    })
+  }).then(response => response.json())
+  // console.log(test.routes)
+  console.log(motoristas)
+  // TODO: [{ distanceMeters: 3969, duration: '558s', 
+  // polyline: { encodedPolyline: 'jq|iA|svlFiXUaPWwGGcD@iAGaEEWjNCpACrFu^a@yCCuGM}@HgG?gEG{BKiDCyAMuCKoFCmEQkHGq@{GuCGl@xGZt@FvF' }}]
+
   // TODO: Validar ERROR caso aconteça
   // TODO: Retorno da API : latitude e longitudo dos pontos inical e final.  
   // TODO: Retorno da API : motoristas disponivéis, ID, Nome, Descrição, Carro, Avaliação, Taxa
@@ -46,7 +52,6 @@ app.post("/ride/estimate", async (req: Request, res: Response): Promise<any> => 
 
 
 
-  console.log(roadInfos);
 
 
 
