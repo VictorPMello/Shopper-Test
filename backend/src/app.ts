@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { motoristas } from "./motoristas"
+import { log } from 'console';
 
 const app = express();
 dotenv.config()
@@ -83,6 +84,43 @@ app.post("/ride/estimate", async (req: Request, res: Response): Promise<any> => 
     "routeResponse": responseAPI
   }
   return res.status(200).json(response)
+})
+
+
+app.patch("/ride/confirm", async (req: Request, res: Response): Promise<any> => {
+  const roadInfos = req.body;
+  if (
+    !roadInfos.hasOwnProperty("origin")
+    || !roadInfos.hasOwnProperty("destination")
+    || !roadInfos.hasOwnProperty("customer_id")) return res.status(400).json({
+      error_code: "INVALID_DATA",
+      error_description: "Os dados fornecidos no corpo da requisição são inválidos"
+    })
+
+  const { origin, destination, driver, distance } = roadInfos;
+
+  if (origin === destination) return res.status(400).json({
+    error_code: "INVALID_DATA",
+    error_description: "Os dados fornecidos no corpo da requisição são inválidos"
+  })
+
+  const validateDriver = motoristas.find(({ id }: { id: number }): Boolean => id === driver.id)
+
+  if (!validateDriver) return res.status(404).json({
+    error_code: "DRIVER_NOT_FOUND",
+    error_description: "Motorista não encontrado"
+  })
+
+  const validateDistance = validateDriver.km_minim * 1000 < distance
+
+  if (!validateDistance) return res.status(406).json({
+    error_code: "INVALID_DISTANCE",
+    error_description: "Distância inválida"
+  })
+
+
+
+  return res.status(200).json({ success: true })
 })
 
 export default app;
