@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import { motoristas } from "./motoristas"
-import { log } from 'console';
+import { loadData, saveData } from './utils/saveDB';
 
 const app = express();
 dotenv.config()
@@ -87,7 +87,7 @@ app.post("/ride/estimate", async (req: Request, res: Response): Promise<any> => 
 })
 
 
-app.patch("/ride/confirm", async (req: Request, res: Response): Promise<any> => {
+app.patch("/ride/confirm", (req: Request, res: Response): any => {
   const roadInfos = req.body;
   if (
     !roadInfos.hasOwnProperty("origin")
@@ -118,7 +118,9 @@ app.patch("/ride/confirm", async (req: Request, res: Response): Promise<any> => 
     error_description: "Distância inválida"
   })
 
-
+  const data = loadData()
+  data.push(roadInfos)
+  saveData(data)
 
   return res.status(200).json({ success: true })
 })
