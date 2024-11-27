@@ -1,0 +1,15 @@
+[
+  {
+    "customer_id": 5,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km",
+    "date": "27/11/2024, 17:32:37"
+  }
+]

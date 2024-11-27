@@ -1,0 +1,275 @@
+[
+  {
+    "customer_id": 1,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km"
+  },
+  {
+    "customer_id": 1,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km"
+  },
+  {
+    "customer_id": 1,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km"
+  },
+  {
+    "customer_id": 1,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km"
+  },
+  {
+    "customer_id": 1,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km"
+  },
+  {
+    "customer_id": 1,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km"
+  },
+  {
+    "customer_id": 1,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km"
+  },
+  {
+    "customer_id": 1,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km"
+  },
+  {
+    "customer_id": 1,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km"
+  },
+  {
+    "customer_id": 2,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km"
+  },
+  {
+    "customer_id": 2,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km"
+  },
+  {
+    "customer_id": 3,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km"
+  },
+  {
+    "customer_id": 3,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km"
+  },
+  {
+    "customer_id": 4,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km",
+    "date": "27/11/2024, 17:07:34"
+  },
+  {
+    "customer_id": 4,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km",
+    "date": "27/11/2024, 17:07:35"
+  },
+  {
+    "customer_id": 4,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km",
+    "date": "27/11/2024, 17:07:36"
+  },
+  {
+    "customer_id": 4,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km",
+    "date": "27/11/2024, 17:07:37"
+  },
+  {
+    "customer_id": 5,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km",
+    "date": "27/11/2024, 17:07:43"
+  },
+  {
+    "customer_id": 5,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km",
+    "date": "27/11/2024, 17:07:44"
+  },
+  {
+    "customer_id": 5,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km",
+    "date": "27/11/2024, 17:07:44"
+  },
+  {
+    "customer_id": 5,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km",
+    "date": "27/11/2024, 17:15:42"
+  },
+  {
+    "customer_id": 5,
+    "origin": "R. Adenil Falcão, 1585 - Eucalipto, Feira de Santana - BA, 44088-744",
+    "destination": "UNACON, R. Carlos Valadares, 1075 - Queimadinha, Feira de Santana - BA, 44050-192",
+    "distance": 3969,
+    "duration": "559s",
+    "driver": {
+      "id": 1,
+      "name": "Homer Simpson"
+    },
+    "value": "R$ 2,50/km",
+    "date": "27/11/2024, 17:17:54"
+  }
+]
