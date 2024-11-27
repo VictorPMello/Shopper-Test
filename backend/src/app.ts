@@ -89,6 +89,7 @@ app.post("/ride/estimate", async (req: Request, res: Response): Promise<any> => 
 
 app.patch("/ride/confirm", (req: Request, res: Response): any => {
   const roadInfos = req.body;
+
   if (
     !roadInfos.hasOwnProperty("origin")
     || !roadInfos.hasOwnProperty("destination")
@@ -119,10 +120,60 @@ app.patch("/ride/confirm", (req: Request, res: Response): any => {
   })
 
   const data = loadData()
+  roadInfos.date = new Date().toLocaleString()
   data.push(roadInfos)
   saveData(data)
 
+  console.log(data);
+
+
   return res.status(200).json({ success: true })
+})
+
+app.get("/ride/:customer_id", (req: Request, res: Response): any => {
+  const { customer_id } = req.params
+  const { driver_id } = req.query
+
+
+  if (!customer_id) return res.status(400).json({
+    error_code: "INVALID_CUSTOMER",
+    error_description: "Customer inválido"
+  })
+
+  if (!driver_id) return res.status(400).json({
+    error_code: "INVALID_DRIVER",
+    error_description: "Motorista inválido"
+  })
+
+  const data = loadData()
+  const rides = data.filter((ride: any) => ride.customer_id === +customer_id);
+
+  if (rides.length < 1) return res.status(404).json({
+    error_code: "NO_RIDES_FOUND",
+    error_description: "Nenhum registro encontrado"
+  })
+
+
+  const result = rides.map((ride: any) => {
+    return {
+      id: customer_id,
+      date: ride.date,
+      origin: ride.origin,
+      destination: ride.destination,
+      distance: ride.distance,
+      duration: ride.duration,
+      driver: ride.driver,
+      value: ride.value
+    }
+
+  })
+
+  console.log(result);
+
+  return res.status(200).json({
+    customer_id,
+    rides
+  })
 })
 
 export default app;
