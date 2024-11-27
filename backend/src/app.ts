@@ -17,21 +17,27 @@ app.post("/ride/estimate", async (req: Request, res: Response): Promise<any> => 
 
   const roadInfos = req.body;
 
-  if (!roadInfos.hasOwnProperty("origin")) return res.status(400).json({ errorMessage: "A origem não foi informada!" })
-  if (!roadInfos.hasOwnProperty("destination")) return res.status(400).json({ errorMessage: "O destino não foi informado!" })
-  if (!roadInfos.hasOwnProperty("customer_id")) return res.status(400).json({ errorMessage: "User sem ID!" })
+  if (
+    !roadInfos.hasOwnProperty("origin")
+    || !roadInfos.hasOwnProperty("destination")
+    || !roadInfos.hasOwnProperty("customer_id")) return res.status(400).json({
+      error_code: "INVALID_DATA",
+      error_description: "Os dados fornecidos no corpo da requisição são inválidos"
+    })
 
-  const { origin, destination, customer_id } = roadInfos;
+  const { origin, destination } = roadInfos;
 
-  if (origin === destination) return res.status(400).json({ errorMessage: "Origem e destino não podem ser iguais!" })
+  if (origin === destination) return res.status(400).json({
+    error_code: "INVALID_DATA",
+    error_description: "Os dados fornecidos no corpo da requisição são inválidos"
+  })
 
-  // TODO: Chamar API GOOGLE MAPS
-  const test = await fetch('https://routes.googleapis.com/directions/v2:computeRoutes', {
+  const responseAPI = await fetch('https://routes.googleapis.com/directions/v2:computeRoutes', {
     method: "POST",
     headers: {
       'Content-Type': 'application/json',
       'X-Goog-Api-Key': process.env.GOOGLE_API_KEY || '',
-      'X-Goog-FieldMask': 'routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline',
+      'X-Goog-FieldMask': 'routes.duration,routes.distanceMeters,routes.polyline.encodedPolyline,routes.legs.startLocation,routes.legs.endLocation',
     },
     body: JSON.stringify({
       "origin": { "address": origin },
@@ -39,25 +45,44 @@ app.post("/ride/estimate", async (req: Request, res: Response): Promise<any> => 
       "travelMode": "DRIVE"
     })
   }).then(response => response.json())
-  // console.log(test.routes)
-  console.log(motoristas)
-  // TODO: [{ distanceMeters: 3969, duration: '558s', 
-  // polyline: { encodedPolyline: 'jq|iA|svlFiXUaPWwGGcD@iAGaEEWjNCpACrFu^a@yCCuGM}@HgG?gEG{BKiDCyAMuCKoFCmEQkHGq@{GuCGl@xGZt@FvF' }}]
 
-  // TODO: Validar ERROR caso aconteça
-  // TODO: Retorno da API : latitude e longitudo dos pontos inical e final.  
-  // TODO: Retorno da API : motoristas disponivéis, ID, Nome, Descrição, Carro, Avaliação, Taxa
-  // TODO: Ordenar por KM mínima
-  // TODO: Retorno da API : Distância e tempo, Resposta original da rota do Google  
+  const originLocation = responseAPI.routes[0].legs[0].startLocation.latLng
+  const endLocation = responseAPI.routes[0].legs[0].endLocation.latLng
 
+  const options = motoristas
+    .filter(({ km_minim }: { km_minim: number }) => km_minim * 1000 < responseAPI.routes[0].distanceMeters)
+    .map(({ id, taxa, nome, descrição, carro, avaliação, comentário }) => {
 
+      const result = {
+        id,
+        name: nome,
+        description: descrição,
+        vehicle: carro,
+        review: {
+          rating: avaliação,
+          comment: comentário
+        },
+        value: taxa
+      }
+      return result
 
+    })
 
-
-
-  return res.status(500).json({ errorMessage: "error" })
+  const response = {
+    "origin": {
+      "latitude": originLocation.latitude,
+      "longitude": originLocation.longitude,
+    },
+    "destination": {
+      "latitude": endLocation.latitude,
+      "longitude": endLocation.longitude
+    },
+    "distance": responseAPI.routes[0].distanceMeters,
+    "duration": responseAPI.routes[0].duration,
+    options,
+    "routeResponse": responseAPI
+  }
+  return res.status(200).json(response)
 })
-
-
 
 export default app;
